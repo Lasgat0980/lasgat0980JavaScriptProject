@@ -1,7 +1,26 @@
-/* DARK MODE CLASS */
+/* font and layout setup */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center; 
+}
+
+/* Dark Mode Class */
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
+}
+
+/* Box styling */
+.content-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
 }
 
 /* Hides elements from the page */
@@ -9,7 +28,7 @@ body.dark-mode {
     display: none;
 }
 
-/* Styling the Dark Mode checkbox to look like a toggle */
+/*  Styles the Dark Mode checkbox to look like a toggle */
 .theme-container {
     display: flex;
     justify-content: flex-end;
@@ -50,4 +69,9 @@ body.dark-mode {
 input:checked + .slider { background-color: #2196F3; }
 input:checked + .slider:before { transform: translateX(26px); }
 
-
+/* Sets project thumbnails to consistent sizes */
+.project-links img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 5px;
+}
