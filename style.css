@@ -1,0 +1,77 @@
+/* RESET & BASE STYLES: Basic font and layout setup */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center; /* Modern replacement for <center> tag */
+}
+
+/* DARK MODE CLASS: Applied to <body> via JavaScript */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* BOX STYLING: Shared styles for Featured Content divs */
+.content-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* UTILITY CLASS: Hides elements from the page */
+.hidden {
+    display: none;
+}
+
+/* SLIDER DESIGN: Styling the Dark Mode checkbox to look like a toggle */
+.theme-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 3px; bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* SLIDER MOVEMENT: Moves the circle when checked */
+input:checked + .slider { background-color: #2196F3; }
+input:checked + .slider:before { transform: translateX(26px); }
+
+/* IMAGES: Ensures project thumbnails are consistent sizes */
+.project-links img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 5px;
+}
