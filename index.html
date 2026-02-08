@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="style.css"> </head>
 <body>
     <center>
-
+    <div class="theme-container">
+        <span>Light Mode</span>
+        <label class="switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
     <header>
         <h1 id="welcome-message">Welcome to my site!</h1>
         <nav>
@@ -24,6 +31,19 @@
             <h2>About Me</h2>
             <p>Hello! My name is Lastazia Dickens and I am currently an aspiring Software Developer. I am enrolled at ECPI University with a projected graduation date of 8/2027. I am a military veteran located in 
             Charlotte, NC and I love learning new technologies and skills</p>
+            <h3>Technical Skills</h3>
+            <ul id="skills-list"></ul>
+        </section>
+        <section id="featured-content">
+            <h2>Featured Content</h2>
+            <div id="university-resources" class="content-box">
+                <h3>University Resources</h3>
+                <p>ECPI Program: <a href="https://www.ecpi.edu/">Visit Site</a></p>
+            </div>
+            <div id="personal-projects" class="content-box">
+                <h3>Personal Projects</h3>
+                <p>GitHub: <a href="https://github.com/yourusername">View Work</a></p>
+            </div>
         </section>
 
         <section id="projects">
