@@ -1,8 +1,7 @@
-// --- 0. WELCOME PROMPT ---
 // Prompt the user for their name as soon as the page loads
 let userName = prompt("Hi! Please enter your name?");
 
-// Check if the user entered a name or cancelled the prompt
+// Check to see if the user entered a name or cancelled the prompt
 if (userName === null || userName === "") {
     userName = "Guest";
 }
@@ -10,16 +9,15 @@ if (userName === null || userName === "") {
 // Select the heading element by its ID "welcome-message"
 const welcomeHeading = document.getElementById("welcome-message");
 
-// Update the text content dynamically using a Template Literal
+// Welcomes user to the site by the name that was entered
 welcomeHeading.textContent = `Welcome to my site, ${userName}!`;
 
 
-// --- 1. SKILLS LOOP ---
-// Array of skills/technologies
+// Array containing skills/technologies
 const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "Responsive Design"];
 const skillsList = document.getElementById("skills-list");
 
-// Loop through the array to build the list in the About section
+// Loop through the array to display the list in the About section
 skills.forEach(skill => {
     const li = document.createElement("li");
     li.textContent = skill;
@@ -28,7 +26,6 @@ skills.forEach(skill => {
 });
 
 
-// --- 2. CONDITIONAL LOGIC FOR FEATURED CONTENT ---
 // Check the number of project links to decide what to display
 const projectLinks = document.querySelectorAll("#projects .project-links a");
 const uniDiv = document.getElementById("university-resources");
@@ -41,10 +38,10 @@ if (projectLinks.length >= 3) {
 }
 
 
-// --- 3. DARK MODE TOGGLE ---
+// DARK MODE TOGGLE
 const themeToggle = document.getElementById("dark-mode-toggle");
 
-// Event listener for the slider to switch the "dark-mode" CSS class
+// Event listener for the slider to switch to "dark-mode" 
 themeToggle.addEventListener("change", () => {
     document.body.classList.toggle("dark-mode");
 });
