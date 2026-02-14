@@ -47,9 +47,6 @@ skills.forEach(skill => {
     skillsList.appendChild(li);
 });
 
-
-
-
 // Check the number of project links to decide what to display
 const projectLinks = document.querySelectorAll("#projects .project-links a");
 const uniDiv = document.getElementById("university-resources");
