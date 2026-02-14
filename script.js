@@ -61,7 +61,7 @@ if (projectLinks.length >= 3) {
     uniDiv.classList.remove("hidden");
 }
 
-// --- REQUIREMENT 3: TIMED CONFIRMATION FOR FORM ---
+// TIMED CONFIRMATION FOR FORM
 const contactForm = document.getElementById("contact-form");
 const statusDiv = document.getElementById("form-status");
 
