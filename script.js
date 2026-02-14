@@ -82,7 +82,7 @@ contactForm.addEventListener("submit", function(event) {
     // Use setTimeout to delay confirmation by 3 seconds
     setTimeout(() => {
         //  Replace loading message with confirmation
-        statusDiv.textContent = `Success! Thank you for reaching out, ${userName}.`;
+        statusDiv.textContent = `Message Sent Successfully!`;
         statusDiv.className = "status-success";
 
         // Reset the form fields
