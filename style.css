@@ -75,3 +75,55 @@ input:checked + .slider:before { transform: translateX(26px); }
     margin: 10px;
     border-radius: 5px;
 }
+
+/* Notification Bar at top of page*/
+#notification-area {
+    width: 100%;
+    position: sticky; /* Stays at the top while scrolling */
+    top: 0;
+    z-index: 1000;
+}
+
+.dynamic-alert {
+    background-color: #2196F3; /* Match your slider blue */
+    color: white;
+    padding: 15px;
+    margin: 0;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: slideDown 0.5s ease-out;
+}
+
+/* The Form Status Message */
+#form-status {
+    margin-top: 15px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    min-height: 24px;
+}
+/*Set the Sending status to orange */
+.status-loading {
+    color: #ce7e00; 
+    font-style: italic;
+}
+
+/*Sets the Success status message to Green */
+.status-success {
+    color: #2d6a4f; 
+    background-color: #d8f3dc;
+    border: 1px solid #b7e4c7;
+}
+
+/* Animation for the Notification */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Style for modified existing elements */
+.highlight-border {
+    border: 2px dashed #2196F3 !important;
+    transition: all 0.4s ease;
+}
