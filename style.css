@@ -25,7 +25,7 @@ body.dark-mode {
 
 /* Hides elements from the page */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /*  Styles the Dark Mode checkbox to look like a toggle */
