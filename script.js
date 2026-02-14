@@ -20,9 +20,11 @@ setTimeout(() => {
     newAlert.className = "dynamic-alert";
     newAlert.textContent = "New Projects Coming SOON!!";
     
+    if (notifyArea) {
     notifyArea.appendChild(newAlert);
+    }
 
-    // Optional: Remove it after 7 seconds
+    // Remove it after 7 seconds
     setTimeout(() => newAlert.remove(), 7000);
 }, 2000);
 
@@ -49,19 +51,22 @@ skills.forEach(skill => {
 
 // Check the number of project links to decide what to display
 const projectLinks = document.querySelectorAll("#projects .project-links a");
-const uniDiv = document.getElementById("university-resources");
+
 
 // If 3 or more projects exist, hide the university resources box
+if(uniDiv) {
 if (projectLinks.length >= 3) {
     uniDiv.classList.add("hidden");
 } else {
     uniDiv.classList.remove("hidden");
 }
+}    
 
 // TIMED CONFIRMATION FOR FORM
 const contactForm = document.getElementById("contact-form");
 const statusDiv = document.getElementById("form-status");
 
+if (contactForm) {
 contactForm.addEventListener("submit", function(event) {
     // Prevent page refresh
     event.preventDefault();
@@ -72,7 +77,7 @@ contactForm.addEventListener("submit", function(event) {
 
     // Disable the button to prevent multiple clicks
     const submitBtn = document.getElementById("submit-btn");
-    submitBtn.disabled = true;
+   if (submitBtn) submitBtn.disabled = true;
 
     // Use setTimeout to delay confirmation by 3 seconds
     setTimeout(() => {
@@ -85,11 +90,14 @@ contactForm.addEventListener("submit", function(event) {
         submitBtn.disabled = false;
     }, 3000);
 });
+}    
 
 // DARK MODE TOGGLE
 const themeToggle = document.getElementById("dark-mode-toggle");
 
 // Event listener for the slider to switch to "dark-mode" 
+if(themeToggle) {
 themeToggle.addEventListener("change", () => {
     document.body.classList.toggle("dark-mode");
 });
+}    
