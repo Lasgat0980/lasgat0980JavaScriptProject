@@ -1,18 +1,42 @@
-// Prompt the user for their name as soon as the page loads
-let userName = prompt("Hi! Please enter your name?");
-
-// Check to see if the user entered a name or cancelled the prompt
-if (userName === null || userName === "") {
-    userName = "Guest";
-}
-
-// Select the heading element by its ID "welcome-message"
+/* Modal Logic that replaced the name prompt message*/
+const modal = document.getElementById("welcome-modal");
+const closeModalBtn = document.getElementById("close-modal-btn");
 const welcomeHeading = document.getElementById("welcome-message");
 
-// Welcomes user to the site by the name that was entered
-welcomeHeading.textContent = `Welcome to my site, ${userName}!`;
+// When the user clicks the close button the modal should be hidden
+if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+       //generic welcome message since we removed the name prompt
+        welcomeHeading.textContent = "Welcome to my site!";
+    });
+}
 
-// notification message to the top after a 2-second delay
+/* PERSIST DARK MODE (LOCALSTORAGE)*/
+const themeToggle = document.getElementById("dark-mode-toggle");
+
+// Check for saved user preference on page load
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    if (themeToggle) themeToggle.checked = true;
+}
+
+// Listen for toggle changes
+if (themeToggle) {
+    themeToggle.addEventListener("change", () => {
+        if (themeToggle.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark"); // Save preference
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light"); // Save preference
+        }
+    });
+}
+
+/* NOTIFICATION AREA */
 setTimeout(() => {
     const notifyArea = document.getElementById("notification-area");
     const newAlert = document.createElement("p");
@@ -21,83 +45,62 @@ setTimeout(() => {
     newAlert.textContent = "New Projects Coming SOON!!";
     
     if (notifyArea) {
-    notifyArea.appendChild(newAlert);
+        notifyArea.appendChild(newAlert);
     }
 
-    // Remove it after 7 seconds
     setTimeout(() => newAlert.remove(), 7000);
 }, 2000);
 
-// Select two existing elements: the welcome heading and the university box
+/* CONTENT MODIFICATIONS */
 const uniDiv = document.getElementById("university-resources");
-
-// Modify styles and content 
 welcomeHeading.style.color = "#2196F3"; 
 welcomeHeading.style.fontSize = "2.5rem";
 
-uniDiv.classList.add("highlight-border"); // Adds the dashed border from my CSS
+if (uniDiv) {
+    uniDiv.classList.add("highlight-border");
+}
 
-// Array containing skills/technologies
+/* SKILLS LIST */
 const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "Responsive Design"];
 const skillsList = document.getElementById("skills-list");
 
-// Loop through the array to display the list in the About section
 skills.forEach(skill => {
     const li = document.createElement("li");
     li.textContent = skill;
     li.style.listStyle = "none"; 
-    skillsList.appendChild(li);
+    if (skillsList) skillsList.appendChild(li);
 });
 
-// Check the number of project links to decide what to display
+/* PROJECT CONDITIONAL LOGIC*/
 const projectLinks = document.querySelectorAll("#projects .project-links a");
 
-
-// If 3 or more projects exist, hide the university resources box
-if(uniDiv) {
-if (projectLinks.length >= 3) {
-    uniDiv.classList.add("hidden");
-} else {
-    uniDiv.classList.remove("hidden");
-}
+if (uniDiv) {
+    if (projectLinks.length >= 3) {
+        uniDiv.classList.add("hidden");
+    } else {
+        uniDiv.classList.remove("hidden");
+    }
 }    
 
-// TIMED CONFIRMATION FOR FORM
+/* FORM SUBMISSION WITH TOOLTIP SUPPORT*/
 const contactForm = document.getElementById("contact-form");
 const statusDiv = document.getElementById("form-status");
 
 if (contactForm) {
-contactForm.addEventListener("submit", function(event) {
-    // Prevent page refresh
-    event.preventDefault();
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-    // Display "sending" message 
-    statusDiv.textContent = "Sending message... ";
-    statusDiv.className = "status-loading";
+        statusDiv.textContent = "Sending message... ";
+        statusDiv.className = "status-loading";
 
-    // Disable the button to prevent multiple clicks
-    const submitBtn = document.getElementById("submit-btn");
-   if (submitBtn) submitBtn.disabled = true;
+        const submitBtn = document.getElementById("submit-btn");
+        if (submitBtn) submitBtn.disabled = true;
 
-    // Use setTimeout to delay confirmation by 3 seconds
-    setTimeout(() => {
-        //  Replace loading message with confirmation
-        statusDiv.textContent = `Message Sent Successfully!`;
-        statusDiv.className = "status-success";
-
-        // Reset the form fields
-        contactForm.reset();
-        submitBtn.disabled = false;
-    }, 3000);
-});
-}    
-
-// DARK MODE TOGGLE
-const themeToggle = document.getElementById("dark-mode-toggle");
-
-// Event listener for the slider to switch to "dark-mode" 
-if(themeToggle) {
-themeToggle.addEventListener("change", () => {
-    document.body.classList.toggle("dark-mode");
-});
-}    
+        setTimeout(() => {
+            statusDiv.textContent = `Message Sent Successfully!`;
+            statusDiv.className = "status-success";
+            contactForm.reset();
+            if (submitBtn) submitBtn.disabled = false;
+        }, 3000);
+    });
+} 
