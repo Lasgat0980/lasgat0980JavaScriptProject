@@ -10,8 +10,7 @@ if (closeModalBtn) {
         modal.style.display = "none";
        //generic welcome message since we removed the name prompt
         welcomeHeading.textContent = "Welcome to my site!";
-    });
-}
+  
 /* NOTIFICATION AREA */
 /*Waits until modal is closed to display*/
 setTimeout(() => {
@@ -26,7 +25,9 @@ setTimeout(() => {
     }
 
     setTimeout(() => newAlert.remove(), 7000);
-}, 2000);
+      }, 2000);
+   });
+}       
 
 /* PERSIST DARK MODE (LOCALSTORAGE)*/
 const themeToggle = document.getElementById("dark-mode-toggle");
