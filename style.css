@@ -177,10 +177,12 @@ input:checked + .slider:before { transform: translateX(26px); }
 
 /* Notification Bar at top of page*/
 #notification-area {
-    width: 100%;
-    position: fixed; /* Stays at the top while scrolling */
+   width: 100%;
+    position: fixed; /* stays at the very top of the screen */
     top: 0;
-    z-index: 3000;
+    left: 0;
+    z-index: 3000;   /* Modal is 2000, so this MUST be higher */
+    pointer-events: none;
 }
 
 .dynamic-alert {
