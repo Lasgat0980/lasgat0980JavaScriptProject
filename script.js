@@ -6,11 +6,27 @@ const welcomeHeading = document.getElementById("welcome-message");
 // When the user clicks the close button the modal should be hidden
 if (closeModalBtn) {
     closeModalBtn.addEventListener("click", () => {
+        //hides the modal
         modal.style.display = "none";
        //generic welcome message since we removed the name prompt
         welcomeHeading.textContent = "Welcome to my site!";
     });
 }
+/* NOTIFICATION AREA */
+/*Waits until modal is closed to display*/
+setTimeout(() => {
+    const notifyArea = document.getElementById("notification-area");
+    const newAlert = document.createElement("p");
+    
+    newAlert.className = "dynamic-alert";
+    newAlert.textContent = "New Projects Coming SOON!!";
+    
+    if (notifyArea) {
+        notifyArea.appendChild(newAlert);
+    }
+
+    setTimeout(() => newAlert.remove(), 7000);
+}, 2000);
 
 /* PERSIST DARK MODE (LOCALSTORAGE)*/
 const themeToggle = document.getElementById("dark-mode-toggle");
@@ -35,21 +51,6 @@ if (themeToggle) {
         }
     });
 }
-
-/* NOTIFICATION AREA */
-setTimeout(() => {
-    const notifyArea = document.getElementById("notification-area");
-    const newAlert = document.createElement("p");
-    
-    newAlert.className = "dynamic-alert";
-    newAlert.textContent = "New Projects Coming SOON!!";
-    
-    if (notifyArea) {
-        notifyArea.appendChild(newAlert);
-    }
-
-    setTimeout(() => newAlert.remove(), 7000);
-}, 2000);
 
 /* CONTENT MODIFICATIONS */
 const uniDiv = document.getElementById("university-resources");
