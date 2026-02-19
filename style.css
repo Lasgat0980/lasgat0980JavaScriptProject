@@ -178,9 +178,9 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Notification Bar at top of page*/
 #notification-area {
     width: 100%;
-    position: sticky; /* Stays at the top while scrolling */
+    position: fixed; /* Stays at the top while scrolling */
     top: 0;
-    z-index: 1000;
+    z-index: 3000;
 }
 
 .dynamic-alert {
