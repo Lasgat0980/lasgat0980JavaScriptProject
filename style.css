@@ -1,3 +1,96 @@
+/* MODAL STYLES */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slight transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; 
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #333; /* Keep text dark for readability on white bg */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #2196F3;
+}
+
+#close-modal-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+#close-modal-btn:hover {
+    background-color: #1976D2;
+}
+
+/* TOOLTIP STYLES */
+#submit-btn {
+    position: relative; 
+    cursor: pointer;
+}
+
+/* Tooltip container */
+#submit-btn:hover::after {
+    content: attr(data-tooltip); /* Pulls text from HTML attribute */
+    position: absolute;
+    bottom: 125%; /* Position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Small arrow for tooltip */
+#submit-btn:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* DARK MODE ADJUSTMENTS */
+body.dark-mode .modal-content {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+/* Make tooltip stand out in Dark Mode */
+body.dark-mode #submit-btn:hover::after {
+    background-color: #2196F3;
+}
+body.dark-mode #submit-btn:hover::before {
+    border-color: #2196F3 transparent transparent transparent;
+}
 /* font and layout setup */
 body {
     font-family: Arial, sans-serif;
