@@ -106,3 +106,68 @@ if (contactForm) {
         }, 3000);
     });
 } 
+
+//Define Project Objects
+const myProjects = [
+    {
+        title: "Final Performance Assessment",
+        summary: "A comprehensive web project demonstrating advanced HTML and CSS layouts.",
+        image: "placeholder1.jpg",
+        link: "https://github.com/Lasgat0980/FinalPerfomanceAssessment.github.io"
+    },
+    {
+        title: "Midterm Performance",
+        summary: "An intermediate project focusing on responsive design and interactive elements.",
+        image: "placeholder2.jpg",
+        link: "https://github.com/Lasgat0980/midtermperformance.github.io"
+    },
+    {
+        title: "Python Data Analytics",
+        summary: "A laboratory project utilizing Python to process and visualize data sets.",
+        image: "placeholder3.jpg",
+        link: "https://github.com/Lasgat0980/Python-for-Data-Analytics-Lab-Project"
+    }
+];
+
+// Store and Parse Information
+const storageKey = "portfolio_projects";
+
+// Check if data exists in sessionStorage
+let storedData = sessionStorage.getItem(storageKey);
+
+if (!storedData) {
+    // If no data, stringify and store the array
+    sessionStorage.setItem(storageKey, JSON.stringify(myProjects));
+    storedData = sessionStorage.getItem(storageKey); 
+}
+
+// Parse the data back into a JavaScript Array
+const projectsToDisplay = JSON.parse(storedData);
+
+//Render Projects Dynamically
+const projectContainer = document.getElementById("dynamic-project-container");
+
+function renderProjects(data) {
+    if (!projectContainer) return;
+    
+    // Clear any existing content
+    projectContainer.innerHTML = "";
+
+    data.forEach(project => {
+        // Create elements
+        const projectCard = document.createElement("div");
+        projectCard.className = "content-box"; 
+
+        projectCard.innerHTML = `
+            <img src="${project.image}" alt="${project.title}" style="width:100%; border-radius:8px;">
+            <h3>${project.title}</h3>
+            <p>${project.summary}</p>
+            <a href="${project.link}" target="_blank">View Repository</a>
+        `;
+
+        projectContainer.appendChild(projectCard);
+    });
+}
+
+// Run the render function
+renderProjects(projectsToDisplay);
